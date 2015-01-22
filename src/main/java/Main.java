@@ -17,6 +17,8 @@ public class Main {
         EPAdministrator cepAdm = cep.getEPAdministrator();
         EPStatement cepStatement1 = cepAdm.createEPL("select * from " +
                 "StockRoomSensor as r, StockParkingSensor as p");
+        // TODO : event a la volée !!
+        // TODO : join dans les requetes !!
 //        EPStatement cepStatementbis = cepAdm.createEPL("select * from " +
 //                "StockRoomSensor");
 //
