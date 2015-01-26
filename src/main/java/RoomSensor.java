@@ -20,4 +20,16 @@ public class RoomSensor {
                 ", timeStamp='" + timeStamp + '\'' +
                 '}';
     }
+
+    public String getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
 }
