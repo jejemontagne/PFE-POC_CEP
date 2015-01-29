@@ -1,4 +1,8 @@
+import akka.actor.ActorSystem;
+import akka.actor.Props;
 import com.espertech.esper.client.*;
+import com.typesafe.config.ConfigFactory;
+
 import java.util.Random;
 
 
@@ -25,11 +29,14 @@ public class Main {
         // TODO : event a la volée !!
         // TODO : join dans les requetes !!
         EPStatement cepStatementbis = cepAdm.createEPL("select * from StockRoomSensor");
-        EPStatement cepStatement2 = cepAdm.createEPL("select * from StockParkingSensor");
+//        EPStatement cepStatement2 = cepAdm.createEPL("select * from StockParkingSensor");
 
-        cepStatement1.addListener(new CEPListener1());
-        cepStatementbis.addListener(new CEPListener1());
-        cepStatement2.addListener(new CEPListener2());
+        /** Creation of the system **/
+        ActorSystem system = ActorSystem.create("Simulation", ConfigFactory.load());
+
+        cepStatement1.addListener(new CEPListener1(system.actorOf(Props.create(VirtualSensor.class),"cepStatement1")));
+        cepStatementbis.addListener(new CEPListener1(system.actorOf(Props.create(VirtualSensor.class),"cepStatementbis")));
+//        cepStatement2.addListener(new CEPListener2());
 
         // We generate a few ticks...
         for (int i = 0; i < 5; i++) {

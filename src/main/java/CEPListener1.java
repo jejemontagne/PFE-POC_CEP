@@ -1,21 +1,16 @@
+import akka.actor.ActorRef;
 import com.espertech.esper.client.*;
 
 /**
  * Created by Jerome on 22/01/2015.
  */
 public class CEPListener1 implements UpdateListener{
-    public void update(final EventBean[] newData, EventBean[] oldData) {
-        new Thread() {
-            @Override
-            public void run() {
+    public ActorRef actorRef;
+    public CEPListener1(ActorRef actorRef) {
+        this.actorRef = actorRef;
+    }
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Event received: " + newData[0].getUnderlying());
-            }
-        }.start();
+    public void update(final EventBean[] newData, EventBean[] oldData) {
+        this.actorRef.tell(newData[0].getUnderlying(), ActorRef.noSender());
     }
 }

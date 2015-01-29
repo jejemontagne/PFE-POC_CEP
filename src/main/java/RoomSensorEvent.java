@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /**
  * Created by Jerome on 22/01/2015.
  */
-public class RoomSensorEvent {
-    public String value;
-    public String name;
-    public String timeStamp;
+public class RoomSensorEvent implements Serializable {
+    private final String value;
+    private final String name;
+    private final String timeStamp;
 
     public RoomSensorEvent(String value, String name, String timeStamp) {
         this.value = value;
