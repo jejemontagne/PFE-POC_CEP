@@ -15,8 +15,8 @@ public class CEPInterfaceActor extends UntypedActor {
 
     @Override
     public void onReceive(Object message) throws Exception {
-        if (message instanceof Object){
-            this.loggingAdapter.error(message.toString() + "coucou");
+        if (message instanceof String){
+            this.loggingAdapter.error(message.toString() + "___________  cep interface actor __________");
         }
     }
 }
