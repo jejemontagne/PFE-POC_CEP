@@ -1,12 +1,12 @@
 /**
  * Created by Jerome on 22/01/2015.
  */
-public class ParkingSensor {
+public class RoomSensorEvent {
     public String value;
     public String name;
     public String timeStamp;
 
-    public ParkingSensor(String value, String name, String timeStamp) {
+    public RoomSensorEvent(String value, String name, String timeStamp) {
         this.value = value;
         this.name = name;
         this.timeStamp = timeStamp;
@@ -14,7 +14,7 @@ public class ParkingSensor {
 
     @Override
     public String toString() {
-        return "ParkingSensor{" +
+        return "RoomSensorEvent{" +
                 "value='" + value + '\'' +
                 ", name='" + name + '\'' +
                 ", timeStamp='" + timeStamp + '\'' +
