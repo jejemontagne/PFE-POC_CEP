@@ -8,9 +8,6 @@ import scala.util.parsing.combinator.testing.Str;
 
 import java.util.Objects;
 
-/**
- * Created by Jerome on 29/01/2015.
- */
 public class Actor extends UntypedActor {
     private LoggingAdapter loggingAdapter;
 
@@ -23,7 +20,7 @@ public class Actor extends UntypedActor {
         if (message instanceof String) {
             this.loggingAdapter.error(message.toString());
 
-            ActorRef actorRef = this.getContext().actorFor("akka.tcp://Simulation@127.0.0.1:2553/user/CEPInterfaceActor");
+            ActorRef actorRef = this.getContext().actorFor("akka.tcp://Simulation@134.59.215.63:2553/user/CEPInterfaceActor");
             actorRef.tell("J'emmerde Romain et son talent",this.sender());
         }
         loggingAdapter.error(message.toString());
