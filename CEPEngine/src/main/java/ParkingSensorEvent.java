@@ -1,9 +1,6 @@
 import java.io.Serializable;
 
-/**
- * Created by Jerome on 22/01/2015.
- */
-public class ParkingSensorEvent implements Serializable{
+public class ParkingSensorEvent  extends CEPEvent implements Serializable{
     public final long serialVersionUID = 1234567891922321327L;
 
     private final String value;

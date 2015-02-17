@@ -1,9 +1,6 @@
 import java.io.Serializable;
 
-/**
- * Created by Jerome on 22/01/2015.
- */
-public class RoomSensorEvent implements Serializable {
+public class RoomSensorEvent extends CEPEvent implements Serializable {
     public final long serialVersionUID = 1234567891322321321L;
     private final String value;
     private final String name;
