@@ -9,6 +9,7 @@ public class CEPListener implements UpdateListener{
 
     public void update(final EventBean[] newData, EventBean[] oldData) {
         // TODO : ne plus mettre de string mais balader des Objects (mettre un jar ou ...)
-        this.actorRef.tell(((CEPEvent)newData[0].getUnderlying()).toString(), ActorRef.noSender());
+        MessageForRemoteActors messageForRemoteActors = new MessageForRemoteActors(((CEPEvent)newData[0].getUnderlying()).toString());
+        this.actorRef.tell(messageForRemoteActors, ActorRef.noSender());
     }
 }
